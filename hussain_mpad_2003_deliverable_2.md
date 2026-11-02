@@ -1,6 +1,6 @@
 **Date**<br>
-**Course Code & Course Name**<br>
-**Student's First Name & Last Name**<br>
+**MPAD 2003A – Introductory Data Storytelling**<br>
+**Ayesha Hussain**<br>
 **Presented to Jean-Sébastien Marier**<br>
 
 # Deliverable 2: Exploratory Data Analysis (EDA)
@@ -23,24 +23,21 @@ Did you notice how to create a hyperlink? In Markdown, we put the clickable text
 And to create an unordered list, we simply put a star (`*`) before each item.
 
 ## 1. Getting Data
+For this assignment, I will be analyzing the City of Ottawa's [Street Lights dataset](https://open.ottawa.ca/datasets/street-lights/about) from the Open Ottawa data portal. My story focuses on street lighting in Ottawa, especially in areas where people might be walking alone or taking public transit at night. I wanted to see what kinds of street lights are being used throughout the city and whether or not there are any patterns that are worth looking into.
 
-Use two hashtag symbols (`##`) to create a level 2 heading like this one.
+I found the dataset by searching the term 'Street Lights' on the Open Ottawa data portal. I downloaded the data as a CSV file and imported it into Google Sheets by going to File, Import, Upload, then selecting the file. The link to the spreadsheet can be found [here](https://docs.google.com/spreadsheets/d/12CwZ0jz5Pu-L2EY8kiHbW2zAw3cVcyki4Zd8j9Lw20I/edit?usp=sharing).
 
-To include a screen capture, use the sample code below. Your images should be saved in the same folder as your `.md` file.
 
-![](import-screen-capture.png)<br>
-*Figure 1: The "Import file" prompt on Google Sheets.*
+![Street Lights dataset](street-lights-import.png)
 
-**Here are examples of functions and lines of code put in grey boxes:**
+*Figure 1: The City of Ottawa Street Lights dataset after importing it into Google Sheets.*
 
-1. If you name a function, put it between "angled" quotation marks like this: `IMPORTHTML`.
-1. If you want to include the entire line of code, do the same thing, albeit with your entire code: `=IMPORTHTML("https://en.wikipedia.org/wiki/China"; "table", 5)`.
-1. Alternatively, you can put your code in an independent box using the template below:
+The data set has 80,670 data rows and 21 columns, not including the header row. As I was looking through it, I noticed a few things that looked unusual, like empty cells under the REFRACTOR section, some pole heights being listed as zero, and some installation dates saying they were from December 30th, 1899. I'm not sure why they're listed like that, so I'll have to look into them when cleaning the data.
 
-``` r
-=IMPORTHTML("https://en.wikipedia.org/wiki/China"; "table", 5)
-```
-This also shows how to create an ordered list. Simply put `1.` before each item.
+Three columns that stood out to me were LIGHT_SOUR, POLE_HEIGHT, and HEAD_STYLE. LIGHT_SOUR shows the different types of light sources, like LED and HPS, which are nominal categorical variables. POLE_HEIGHT contains the numerical measurements of pole heights, making it a continuous numerical variable. Lastly, HEAD_STYLE shows the different styles of light fixtures, like COBRA HEAD and CLDM, which are also nominal categorical variables.
+
+A question I want to explore is whether LED or HPS lights are more common on certain streets in Ottawa.
+
 
 ## 2. Understanding Data
 
