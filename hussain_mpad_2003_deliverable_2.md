@@ -1,26 +1,10 @@
-**Date**<br>
+**November 2, 2026**<br>
 **MPAD 2003A – Introductory Data Storytelling**<br>
 **Ayesha Hussain**<br>
 **Presented to Jean-Sébastien Marier**<br>
 
 # Deliverable 2: Exploratory Data Analysis (EDA)
 
-Use one hashtag symbol (`#`) to create a level 1 heading like this one.
-
-## Foreword
-
-For this assignment, you must clean and analyze the dataset from Deliverable 1, create exploratory charts/visualizations, and identify a potential story. Your assignment must clearly detail your process. You are expected to write about 1,000-1,200 words, and to include several screen captures showing the different steps you went through. Your assignment must be written with the Markdown format and submitted on GitHub.
-
-I have been assigning different versions of this project to my digital journalism and data storytelling students for a few years now. Its structure was inspired by the main sections/chapters of [*The Data Journalism Handbook*](https://datajournalism.com/read/handbook/one/). This version was further inspired by the [Key Capabilities in Data Science](https://extendedlearning.ubc.ca/programs/key-capabilities-data-science) program offered by the University of British Columbia (UBC).
-
-**Here are some useful resources for this assignment:**
-
-* [GitHub's *Basic writing and formatting syntax* page](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)
-* [The template repository for this assignment in case you delete something by mistake](https://github.com/jsmarier/jou4100_jou4500_mpad2003_project2_template)
-
-Did you notice how to create a hyperlink? In Markdown, we put the clickable text between square brackets and the actual URL between parentheses.
-
-And to create an unordered list, we simply put a star (`*`) before each item.
 
 ## 1. Getting Data
 For this assignment, I will be analyzing the City of Ottawa's [Street Lights dataset](https://open.ottawa.ca/datasets/street-lights/about) from the Open Ottawa data portal. My story focuses on street lighting in Ottawa, especially in areas where people might be walking alone or taking public transit at night. I wanted to see what kinds of street lights are being used throughout the city and whether or not there are any patterns that are worth looking into.
@@ -43,15 +27,36 @@ A question I want to explore is whether LED or HPS lights are more common on cer
 
 ### 2.1. VIMO Analysis
 
-Use three hashtag symbols (`###`) to create a level 3 heading like this one. Please follow this template when it comes to level 1 and level 2 headings. However, you can use level 3 headings as you see fit.
+Before cleaning the dataset, I completed a VIMO analysis to check for valid, invalid, missing, and outlier values. According to Statistics Canada (2020), VIMO is a method to check the accuracy of a dataset by looking for values that are incorrect, missing, or unusually high or low. I mainly focused on the 'LIGHT_SOUR' and 'POLE_HEIGHT' columns because they have useful information regarding my story.
 
-Insert text here.
+**Valid:** I started by using the filter tool on Google Sheets to filter the 'LIGHT_SOUR' column. I found several types of light sources, including HPS, LED, MH, LPS, and MV. Since these are recognizable types of lighting, the values appear to be correct. However, this is not a 100% guarantee that all the values were recorded correctly.
 
-Support your claims by citing relevant sources. Please follow [APA guidelines for in-text citations](https://apastyle.apa.org/style-grammar-guidelines/citations).
+**Invalid:** While looking through the filters for the different light sources, I saw one entry listed as '135' instead of a light source. Upon further inspection, I found that it was in row 76070. The same row had a wattage of zero and a pole height of 11.2. Since '135' doesn't match the other categories, it could be a data error. However, since I do not know what the number is supposed to represent, I cannot assume what the correct value should be.
 
-**For example:**
+**Missing:** I also noticed that some of the cells under 'LIGHT_SOUR' were empty. Statistics Canada (2020) explains how missing values are different from values that were recorded as zero. To find out how many were missing, I used the 'COUNTBLANK' function in Google Sheets:
 
-As seen in Bounegru & Gray (2011), a data visualization should be clear...
+```excel
+=COUNTBLANK(Street_Lights!N2:N80671)
+```
+
+The formula returned five blank cells out of 80,670 entries. This means five records don't specify what type of light source is being used.
+
+**Outliers:** For this part, I looked at the `POLE_HEIGHT` column. I sorted the values from smallest to largest and found that the lowest height was zero, while the highest was 107. To see how many times these values appeared, I used the following formulas:
+
+```excel
+=COUNTIF(Street_Lights!K2:K80671,0)
+```
+
+```excel
+=COUNTIF(Street_Lights!K2:K80671,107)
+```
+I found that 25,889 entries had a height of zero, while only one had a height of 107. When I looked into that entry, I found that it was an HPS street light on Main Street with a wattage of 150. Since many of the other pole heights I saw were around 9 to 11, 107 seemed unusually high. I'm thinking it might have been meant to be 10.7, but I can't say for sure without looking into it further. As for the values listed as zero, they could just be missing measurements rather than the actual height of the poles.
+
+
+![Pole height outlier](pole-height-outlier.png)
+
+*Figure 2: A street light on Main Street with a recorded pole height of 107.*
+
 
 ### 2.2. Cleaning Data
 
@@ -77,8 +82,5 @@ Insert text here.
 
 ## 4. References
 
-Include a list of your references here. Please follow [APA](https://apastyle.apa.org/style-grammar-guidelines/references) or [MLA](https://www.mla.org/MLA-Style) guidelines for references. Hanging paragraphs aren't required though.
 
-**Here's an example:**
-
-Bounegru, L., & Gray, J. (Eds.). (2021). *The Data Journalism Handbook 2: Towards A Critical Data Practice*. Amsterdam University Press. [https://ocul-crl.primo.exlibrisgroup.com/permalink/01OCUL_CRL/hgdufh/alma991022890087305153](https://ocul-crl.primo.exlibrisgroup.com/permalink/01OCUL_CRL/hgdufh/alma991022890087305153)
+Statistics Canada. (2020, September 23). *Data accuracy and validation: Methods to ensure the quality of data* [Video]. https://www.statcan.gc.ca/en/wtc/data-literacy/catalogue/892000062020008
