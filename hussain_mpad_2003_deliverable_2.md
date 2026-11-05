@@ -9,16 +9,16 @@
 ## 1. Getting Data
 For this assignment, I will be analyzing the City of Ottawa's [Street Lights dataset](https://open.ottawa.ca/datasets/street-lights/about) from the Open Ottawa data portal (City of Ottawa, 2019). My story focuses on street lighting in Ottawa, especially in areas where people might be walking alone or taking public transit at night. I wanted to see what kinds of street lights are being used throughout the city and whether or not there are any patterns that are worth looking into.
 
-I found the dataset by searching the term 'Street Lights' on the Open Ottawa data portal. I downloaded the data as a CSV file and imported it into Google Sheets by going to File, Import, Upload, then selecting the file. The link to the spreadsheet can be found [here](https://docs.google.com/spreadsheets/d/12CwZ0jz5Pu-L2EY8kiHbW2zAw3cVcyki4Zd8j9Lw20I/edit?usp=sharing).
+I found the dataset by searching the term 'Street Lights' on the Open Ottawa data portal. I downloaded it as a CSV file and imported it into Google Sheets by going to File > Import > Upload, then selecting the file. The link to the spreadsheet can be found [here](https://docs.google.com/spreadsheets/d/12CwZ0jz5Pu-L2EY8kiHbW2zAw3cVcyki4Zd8j9Lw20I/edit?usp=sharing).
 
 
 ![Street Lights dataset](street-lights-import.png)
 
 *Figure 1: The City of Ottawa Street Lights dataset after importing it into Google Sheets.*
 
-The data set has 80,670 data rows and 21 columns, not including the header row. As I was looking through it, I noticed a few things that looked unusual, like empty cells under the REFRACTOR section, some pole heights being listed as zero, and some installation dates saying they were from December 30th, 1899. I'm not sure why they're listed like that, so I'll have to look into them when cleaning the data.
+The data set has 80,670 data rows and 21 columns, not including the header row. While looking through it, I noticed a few unusual values, like empty cells under `REFRACTOR`, pole heights listed as zero, and installation dates from December 30th, 1899. I wasn't sure why they were listed like that, so I wanted to look into them when cleaning the data.
 
-Three columns that stood out to me were LIGHT_SOUR, POLE_HEIGHT, and HEAD_STYLE. LIGHT_SOUR shows the different types of light sources, like LED and HPS, which are nominal categorical variables. POLE_HEIGHT contains the numerical measurements of pole heights, making it a continuous numerical variable. Lastly, HEAD_STYLE shows the different styles of light fixtures, like COBRA HEAD and CLDM, which are also nominal categorical variables.
+Three columns that stood out to me were LIGHT_SOUR, POLE_HEIGHT, and HEAD_STYLE. LIGHT_SOUR shows the different types of light sources, like LED and HPS, making it a nominal categorical variable. POLE_HEIGHT contains numerical measurements of pole heights, making it a continuous numerical variable. Lastly, HEAD_STYLE shows the different styles of light fixtures, like COBRA HEAD and CLDM, which is also a nominal categorical variable.
 
 A question I want to explore is whether LED or HPS lights are more common on certain streets in Ottawa.
 
@@ -79,7 +79,7 @@ I left the unusual values I found during my VIMO analysis unchanged because I co
 
 ### 2.3. Analyzing Data
 
-Once I cleaned the dataset, I wanted to see what kinds of street lights were used most commonly throughout Ottawa. I focused on the `LIGHT_SOUR` column so I could compare LED and HPS lights to see which was more common.
+Once I cleaned the dataset, I wanted to see what kinds of street lights were used most commonly throughout Ottawa. I focused on the `LIGHT_SOUR` column so I could compare LED and HPS lights.
 
 I did this by creating a pivot table in Google Sheets by going to Insert > Pivot table. Using the cleaned version of the dataset, I added `LIGHT_SOUR` under Rows and `OBJECTID` under Values. After that, I changed the calculation to `COUNTA` so I could count how many entries there were for each type of light source.
 
@@ -87,7 +87,7 @@ I did this by creating a pivot table in Google Sheets by going to Insert > Pivot
 
 *Figure 4: Pivot table showing the number of records for each light source in Ottawa.*
 
-The pivot table showed me that HPS was the most common light source, with 53,033 entries, followed by LED with 25,460 and MH with 1,929. I then used the Chart tool to create a bar chart to compare the different light sources. I chose a bar chart because I thought that would make it easier to visually see the differences between the categories.
+The pivot table showed me that HPS was the most common light source, with 53,033 entries, followed by LED with 25,460 and MH with 1,929. I then used the Chart tool to create a bar chart to compare the different light sources. I chose a bar chart because I thought that would make it easier to see the differences between the categories.
 
 ![Street light sources bar chart](street-lights-chart.png)
 
