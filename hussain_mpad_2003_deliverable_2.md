@@ -27,13 +27,13 @@ A question I want to explore is whether LED or HPS lights are more common on cer
 
 ### 2.1. VIMO Analysis
 
-Before cleaning the dataset, I completed a VIMO analysis to check for valid, invalid, missing, and outlier values. According to Statistics Canada (2020), VIMO is a method to check the accuracy of a dataset by looking for values that are incorrect, missing, or unusually high or low. I mainly focused on the 'LIGHT_SOUR' and 'POLE_HEIGHT' columns because they have useful information regarding my story.
+Before cleaning the dataset, I completed a VIMO analysis to check for valid, invalid, missing, and outlier values. According to Statistics Canada (2020), VIMO helps identify potential errors in a dataset. I focused on the 'LIGHT_SOUR' and 'POLE_HEIGHT' columns because they're relevant to my story.
 
-**Valid:** I started by using the filter tool on Google Sheets to filter the 'LIGHT_SOUR' column. I found several types of light sources, including HPS, LED, MH, LPS, and MV. Since these are recognizable types of lighting, the values appear to be correct. However, this is not a 100% guarantee that all the values were recorded correctly.
+**Valid:** I used the filter tool on Google Sheets to look through the 'LIGHT_SOUR' column. I found several types of light sources, including HPS, LED, MH, LPS, and MV. Since these are recognizable types of lighting, the values appeared valid. However, this doesn't guarantee that all the values were recorded correctly.
 
-**Invalid:** While looking through the filters for the different light sources, I saw one entry listed as '135' instead of a light source. Upon further inspection, I found that it was in row 76070. The same row had a wattage of zero and a pole height of 11.2. Since '135' doesn't match the other categories, it could be a data error. However, since I do not know what the number is supposed to represent, I cannot assume what the correct value should be.
+**Invalid:** While looking through the light sources filter, I found one entry listed as '135' in row 76070. The same row had a wattage of zero and a pole height of 11.2. Since '135' doesn't match the other light source categories, it could be an error. However, I cannot assume what the correct value should be.
 
-**Missing:** I also noticed that some of the cells under 'LIGHT_SOUR' were empty. Statistics Canada (2020) explains how missing values are different from values that were recorded as zero. To find out how many were missing, I used the 'COUNTBLANK' function in Google Sheets:
+**Missing:** I noticed some empty cells under `LIGHT_SOUR`. To find out how many were missing, I used the 'COUNTBLANK' function in Google Sheets:
 
 ```excel 
 =COUNTBLANK(Street_Lights!N2:N80671)
@@ -41,7 +41,7 @@ Before cleaning the dataset, I completed a VIMO analysis to check for valid, inv
 
 The formula returned five blank cells out of 80,670 entries. This means five records don't specify what type of light source is being used.
 
-**Outliers:** For this part, I looked at the `POLE_HEIGHT` column. I sorted the values from smallest to largest and found that the lowest height was zero, while the highest was 107. To see how many times these values appeared, I used the following formulas:
+**Outliers:** I sorted the `POLE_HEIGHT` column from smallest to largest and found that the lowest height was zero, while the highest was 107. To see how often these values appeared, I used the following formulas:
 
 ```excel
 =COUNTIF(Street_Lights!K2:K80671,0)
@@ -50,7 +50,8 @@ The formula returned five blank cells out of 80,670 entries. This means five rec
 ```excel
 =COUNTIF(Street_Lights!K2:K80671,107)
 ```
-I found that 25,889 entries had a height of zero, while only one had a height of 107. When I looked into that entry, I found that it was an HPS street light on Main Street with a wattage of 150. Since many of the other pole heights I saw were around 9 to 11, 107 seemed unusually high. I'm thinking it might have been meant to be 10.7, but I can't say for sure without looking into it further. As for the values listed as zero, they could just be missing measurements rather than the actual height of the poles.
+
+I found 25,889 entries with a height of zero and only one with a height of 107. The entry with a height of 107 was an HPS light on Main Street with a wattage of 150. Since many of the other heights were around 9 to 11, I thought 107 might have been meant to be 10.7, but I can't confirm that. The zero values could just be missing measurements rather than the actual height of the poles.
 
 
 ![Pole height outlier](pole-height-outlier.png)
