@@ -1,4 +1,4 @@
-**November 4, 2026**<br>
+**November 5, 2026**<br>
 **MPAD 2003A – Introductory Data Storytelling**<br>
 **Ayesha Hussain**<br>
 **Presented to Jean-Sébastien Marier**<br>
@@ -7,7 +7,7 @@
 
 
 ## 1. Getting Data
-For this assignment, I will be analyzing the City of Ottawa's [Street Lights dataset](https://open.ottawa.ca/datasets/street-lights/about) from the Open Ottawa data portal. My story focuses on street lighting in Ottawa, especially in areas where people might be walking alone or taking public transit at night. I wanted to see what kinds of street lights are being used throughout the city and whether or not there are any patterns that are worth looking into.
+For this assignment, I will be analyzing the City of Ottawa's [Street Lights dataset](https://open.ottawa.ca/datasets/street-lights/about) from the Open Ottawa data portal (City of Ottawa, 2019). My story focuses on street lighting in Ottawa, especially in areas where people might be walking alone or taking public transit at night. I wanted to see what kinds of street lights are being used throughout the city and whether or not there are any patterns that are worth looking into.
 
 I found the dataset by searching the term 'Street Lights' on the Open Ottawa data portal. I downloaded the data as a CSV file and imported it into Google Sheets by going to File, Import, Upload, then selecting the file. The link to the spreadsheet can be found [here](https://docs.google.com/spreadsheets/d/12CwZ0jz5Pu-L2EY8kiHbW2zAw3cVcyki4Zd8j9Lw20I/edit?usp=sharing).
 
@@ -99,12 +99,23 @@ The chart shows that HPS was more common than LED. I also wanted to know what pe
 This tells me that HPS is the most common overall, but it doesn't tell me the specifics of which streets they're on. I would want to look into this further, especially in areas around universities, transit stations, and downtown Ottawa, since those are the main focuses of my story.
 
 
-
 ## 3. Delivering Data
 
-Insert text here.
+After going through everything, I think my dataset has the potential to tell a story about street lighting in Ottawa, especially when it comes to people walking or taking public transit at night. My analysis showed that HPS lights were more common than LED lights, but I still don't know how these lights are distributed across different areas of the city.
+
+For my story, I want to hone in on areas around universities, transit stations, and downtown Ottawa. I would like to compare the types of street lights and see if there are any noticeable patterns. I could use the `STREET_NAM` column to start comparing different streets, although I would need more location information to look at specific areas.
+
+I would also want to find out whether the differences in lighting affect how safe people feel when walking alone at night. Since the data is only about the street lights themselves, I would need to gather other information, like people's experiences and observations of lighting in these areas.
+
+I could interview students who regularly travel home after evening classes or people who use public transit at night. I would also like to speak with someone from the City of Ottawa who could explain how decisions about street lighting are made.
+
+For the final story, I could use maps, charts, photographs, and interviews to show how street lighting varies throughout Ottawa and how people experience these spaces at night.
+
 
 ## 4. References
 
+City of Ottawa. (2019, August 29). *Street lights* [Data set; updated August 12, 2026]. Open Ottawa. https://open.ottawa.ca/datasets/street-lights/about
 
 Statistics Canada. (2020, September 23). *Data accuracy and validation: Methods to ensure the quality of data* [Video]. https://www.statcan.gc.ca/en/wtc/data-literacy/catalogue/892000062020008
+
+
