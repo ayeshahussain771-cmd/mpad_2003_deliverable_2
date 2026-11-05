@@ -60,22 +60,20 @@ I found that 25,889 entries had a height of zero, while only one had a height of
 
 ### 2.2. Cleaning Data
 
-After completing my VIMO analysis, I started cleaning the dataset through Google Sheets. I started by duplicating the original sheet and renaming it `Street_Lights_Cleaned` so I could keep the untouched data.
+After completing my VIMO analysis, I started cleaning the dataset in Google Sheets. I first duplicated the original sheet and renamed it `Street_Lights_Cleaned` so I could keep the untouched data.
 
-Initially, I used Find and Replace. I noticed that seven entries under `LIGHT_SOUR` had `led` written in lowercase instead of `LED`. I selected the column, went to Edit > Find and replace, and replaced the seven lowercase entries with `LED` to keep the labels consistent.
+I then used Find and Replace. I noticed that seven entries under `LIGHT_SOUR` had `led` written in lowercase instead of `LED`. I selected the column, went to Edit > Find and replace, and replaced the entries with `LED` to keep the labels consistent.
 
-Next, in the same column, I went to Data > Data cleanup > Trim whitespace to check for unnecessary spaces. Google Sheets reported that no selected cells had whitespace trimmed. However, when I selected the rest of the dataset, Google Sheets found unnecessary spaces in 2,589 cells, including some street names. I used the Trim all option to remove them.
+Next, I went to Data > Data cleanup > Trim whitespace to check for unnecessary spaces. Google Sheets reported there were no extra spaces in the `LIGHT_SOUR` column. However, when I checked the rest of the dataset, it found unnecessary spaces in 2,589 cells, including some street names. I used the Trim all option to remove them.
 
 I also froze the first row using View > Freeze > 1 row so the column headings would stay visible while scrolling through the dataset.
 
-Lastly, I checked for duplicates using Data > Data cleanup > Remove duplicates. I selected all 21 columns and checked that the data had a header row. Google Sheets reported that no duplicate rows were found, meaning that all the data rows remained.
+Lastly, I checked for duplicates using Data > Data cleanup > Remove duplicates. I selected all 21 columns and checked that the data had a header row. Google Sheets reported that no duplicate rows were found, so all the data rows remained.
 
 I left the unusual values I found during my VIMO analysis unchanged because I couldn't be sure what the correct values should be.
 
 ![Cleaned Street Lights dataset](street-lights-cleaned.png)
 *Figure 3: The Street Lights dataset in Google Sheets after completing the cleaning process.*
-
-
 
 
 ### 2.3. Analyzing Data
