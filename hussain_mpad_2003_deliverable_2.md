@@ -104,6 +104,8 @@ After going through everything, I think my dataset has the potential to tell a s
 
 For my story, I want to hone in on areas around universities, transit stations, and downtown Ottawa. I would like to compare the types of street lights and see if there are any noticeable patterns. I could use the `STREET_NAM` column to start comparing different streets, although I would need more location information to look at specific areas.
 
+I also found the City of Ottawa’s Nightlife Economy Action Plan, which includes a recommendation on how to improve safety at night. One of the recommendations is to improve street lighting and public transit options between 6 p.m. and 6 a.m. (City of Ottawa, n.d.). I think this is a useful source for my story because it shows that the city has already been looking into street lighting as a way to improve nighttime safety.
+
 I would also want to find out whether the differences in lighting affect how safe people feel when walking alone at night. Since the data is only about the street lights themselves, I would need to gather other information, like people's experiences and observations of lighting in these areas.
 
 I could interview students who regularly travel home after evening classes or people who use public transit at night. I would also like to speak with someone from the City of Ottawa who could explain how decisions about street lighting are made.
@@ -114,6 +116,8 @@ For the final story, I could use maps, charts, photographs, and interviews to sh
 ## 4. References
 
 City of Ottawa. (2019, August 29). *Street lights* [Data set; updated August 12, 2026]. Open Ottawa. https://open.ottawa.ca/datasets/street-lights/about
+
+City of Ottawa. (n.d.). *Nightlife economy action plan 2023–2026* [PDF]. https://documents.ottawa.ca/sites/default/files/nightlife_economy_action_plan_en.pdf
 
 Statistics Canada. (2020, September 23). *Data accuracy and validation: Methods to ensure the quality of data* [Video]. https://www.statcan.gc.ca/en/wtc/data-literacy/catalogue/892000062020008
 
