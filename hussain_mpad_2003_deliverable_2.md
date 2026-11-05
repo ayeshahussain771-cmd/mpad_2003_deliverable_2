@@ -1,4 +1,4 @@
-**November 2, 2026**<br>
+**November 4, 2026**<br>
 **MPAD 2003A – Introductory Data Storytelling**<br>
 **Ayesha Hussain**<br>
 **Presented to Jean-Sébastien Marier**<br>
@@ -76,19 +76,29 @@ I left the unusual values I found during my VIMO analysis unchanged because I co
 *Figure 3: The Street Lights dataset in Google Sheets after completing the cleaning process.*
 
 
+
+
 ### 2.3. Analyzing Data
 
-Insert text here.
+Once I cleaned the dataset, I wanted to see what kinds of street lights were used most commonly throughout Ottawa. I focused on the `LIGHT_SOUR` column so I could compare LED and HPS lights to see which was more common.
 
-**This section should include a screen capture of your pivot table, like so:**
+I did this by creating a pivot table in Google Sheets by going to Insert > Pivot table. Using the cleaned version of the dataset, I added `LIGHT_SOUR` under Rows and `OBJECTID` under Values. After that, I changed the calculation to `COUNTA` so I could count how many entries there were for each type of light source.
 
-![](pivot-table-screen-capture.png)<br>
-*Figure 2: This pivot table shows...*
+![Street light sources pivot table](street-lights-pivot.png)
 
-**This section should also include a screen capture of your exploratory chart, like so:**
+*Figure 4: Pivot table showing the number of records for each light source in Ottawa.*
 
-![](chart-screen-capture.png)<br>
-*Figure 3: This exploratory chart shows...*
+The pivot table showed me that HPS was the most common light source, with 53,033 entries, followed by LED with 25,460 and MH with 1,929. I then used the Chart tool to create a bar chart to compare the different light sources. I chose a bar chart because I thought that would make it easier to visually see the differences between the categories.
+
+![Street light sources bar chart](street-lights-chart.png)
+
+*Figure 5: Bar chart showing the distribution of street light sources in Ottawa.*
+
+The chart shows that HPS was more common than LED. I also wanted to know what percentage of the dataset each type made up. I calculated this by dividing the number of entries for each light source by the total number of records (80,670) and multiplying it by 100. For HPS, it was 65.7% ((53,033 ÷ 80,670) × 100), and for LED, it was 31.6% ((25,460 ÷ 80,670) × 100).
+
+This tells me that HPS is the most common overall, but it doesn't tell me the specifics of which streets they're on. I would want to look into this further, especially in areas around universities, transit stations, and downtown Ottawa, since those are the main focuses of my story.
+
+
 
 ## 3. Delivering Data
 
